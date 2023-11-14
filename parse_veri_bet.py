@@ -49,72 +49,89 @@ def convert_to_utc(date_str):
     return utc_date.strftime("%Y-%m-%dT%H:%M:%S+00:00")
 
 
-def parse_price_and_spread(value):
-    # Parses the price and spread from a string
-    if value == "N/A":
-        return "", 0.0
+def parse_price_and_spread(bet_value):
+    # Verifica se o valor é "N/A" ou vazio
+    if bet_value in ["N/A", ""]:
+        return "N/A", "N/A"
 
-    parts = value.split("\n")
-    price = parts[1].strip("()") if len(parts) > 1 else ""
-    spread_part = parts[0].split(" ")[-1] if parts[0] else "0"
-    spread = 0.0 if spread_part == "N/A" else float(spread_part)
+    # Separa os componentes do valor da aposta
+    if 'O ' in bet_value or 'U ' in bet_value:
+        # Para over/under, separa o valor do spread do preço
+        spread, price = bet_value.replace('O ', '').replace('U ', '').split('\n')
+    else:
+        # Para moneyline e spread, o spread e o preço já estão separados
+        parts = bet_value.split('\n')
+        spread = parts[0]  # O spread é o primeiro elemento
+        price = parts[1] if len(parts) > 1 else spread  # O preço é o segundo elemento ou o mesmo que o spread para moneyline
+
+    # Remove parênteses do preço, se houver
+    price = price.strip("()")
+
+    # Converte o spread para um número, se possível
+    try:
+        spread = float(spread.replace('½', '.5'))  # Converte frações para decimal
+    except ValueError:
+        # Se o spread não for um número, define como "N/A"
+        spread = "N/A"
 
     return price, spread
 
 
 def create_betting_structure(bet_details, sport_league, event_date_utc, team1, team2):
-    # Creates structured betting data for each game, including N/A values
     games_data = []
 
-    for i in range(0, len(bet_details), 2):
-        game_data = []
-        for line_type in ["moneyline", "spread", "over/under"]:
-            for j in range(2):
-                team = bet_details[i + j]
+    if len(bet_details) != 2:
+        raise ValueError("bet_details must contain exactly 2 elements.")
 
-                price, spread = (
-                    ("N/A", 0)
-                    if team[line_type] == "N/A"
-                    else parse_price_and_spread(team[line_type])
-                )
-                if line_type == "moneyline":
-                    price = team[line_type] if team[line_type] != "N/A" else "N/A"
+    # Order of lines should be: moneyline team 1, moneyline team 2, spread team 1, spread team 2, over, under
+    # First, handle moneyline and spread for both teams
+    for line_type in ["moneyline", "spread"]:
+        for i, team_bets in enumerate(bet_details):
+            team_name = team1 if i == 0 else team2
+            bet_value = team_bets.get(line_type, "N/A")
+            price, spread = parse_price_and_spread(bet_value)
 
-                if line_type == "over/under":
-                    ou_split = team[line_type].split("\n")
-                    side = "over" if ou_split[0].startswith("O") else "under"
-                    team_name = "total"
-                else:
-                    side = team1 if j == 0 else team2
-                    team_name = side
+            bet_data = {
+                "sport_league": sport_league,
+                "event_date_utc": event_date_utc,
+                "team1": team1,
+                "team2": team2,
+                "pitcher": "",
+                "period": "FULL GAME",
+                "line_type": line_type,
+                "price": price,
+                "side": team_name,
+                "team": team_name,
+                "spread": spread if line_type == "spread" else "0",
+            }
+            games_data.append(bet_data)
 
-                game_data.append(
-                    {
-                        "sport_league": sport_league,
-                        "event_date_utc": event_date_utc,
-                        "team1": team1,
-                        "team2": team2,
-                        "pitcher": "",
-                        "period": "FULL GAME",
-                        "line_type": line_type,
-                        "price": price,
-                        "side": side,
-                        "team": team_name,
-                        "spread": spread,
-                    }
-                )
-
-        if game_data:
-            games_data.append(game_data)
+    # Now, handle over/under separately
+    over_under_values = [bet_details[0]["total"], bet_details[1]["total"]]
+    for ou_value in over_under_values:
+        price, spread = parse_price_and_spread(ou_value)
+        side = "over" if "O " in ou_value else "under"
+        bet_data = {
+            "sport_league": sport_league,
+            "event_date_utc": event_date_utc,
+            "team1": team1,
+            "team2": team2,
+            "pitcher": "",
+            "period": "FULL GAME",
+            "line_type": "over/under",
+            "price": price,
+            "side": side,
+            "team": "total",
+            "spread": spread,
+        }
+        games_data.append(bet_data)
 
     return games_data
 
 
 options = Options()
 options.headless = True
-options.add_argument(
-    "--log-level=3"
-)  
+options.add_argument("--log-level=3")
 
 service = Service(ChromeDriverManager().install())
 if sys.platform == "win32":
@@ -129,79 +146,91 @@ wait = WebDriverWait(driver, 30)
 wait.until(EC.visibility_of_element_located((By.ID, "odds-picks_wrapper")))
 
 items = []
-rows = driver.find_elements(By.CSS_SELECTOR, "tr[role='row']")
+rows = driver.find_elements(By.CSS_SELECTOR, "#odds-picks > tbody > tr")
 total_rows = len(rows)
 bar_width = 100
-
 # Adding a progress bar for rows processing
-for row in tqdm(rows, desc="Scraping data", unit="%", total=total_rows, ncols=bar_width, bar_format='{l_bar}{bar}| {percentage:3.0f}%'):
-    try:
-        league_xpath = ".//td/div/div/div/div[1]/div/div/div/div/table/tbody/tr[4]/td[1]/table/tbody/tr/td/span[@class='text-muted text-wrap text-left']/a"
-        league_element = row.find_element(By.XPATH, league_xpath)
-        sport_league = league_element.text.strip()
-    except NoSuchElementException:
-        sport_league = "Unknown"
+for row in tqdm(
+    rows,
+    desc="Scraping data",
+    unit="%",
+    total=total_rows,
+    ncols=bar_width,
+    bar_format="{l_bar}{bar}| {percentage:3.0f}%",
+):
+    # Tente encontrar as duas divisões que representam as tabelas de aposta dentro da row
+    betting_divs = row.find_elements(By.XPATH, ".//div[@class='col col-md']")
 
-    try:
-        date_xpath = ".//td/div/div/div/div[1]/div/div/div/div/table/tbody/tr[4]/td[1]/table/tbody/tr/td/span[@class='badge badge-light text-wrap text-left']"
-        date_element = row.find_element(By.XPATH, date_xpath)
-        date = date_element.text.strip()
-        event_date_utc = convert_to_utc(date)
-    except NoSuchElementException:
-        continue
-
-    teams = []
-    j = 1
-    while True:
+    for index, div in enumerate(betting_divs):
         try:
-            team_xpath_1 = f".//div[div[{j}]]/div/table/tbody/tr[2]/td[1]/table/tbody/tr/td/table/tbody/tr/td[1]/a/span"
-            team_xpath_2 = f".//div[div[{j}]]/div/table/tbody/tr[3]/td[1]/table/tbody/tr/td/table/tbody/tr/td[1]/a/span"
-
-            team_element_1 = row.find_element(By.XPATH, team_xpath_1)
-            team_element_2 = row.find_element(By.XPATH, team_xpath_2)
-
-            team1 = team_element_1.text.strip()
-            team2 = team_element_2.text.strip()
-
-            teams.extend([team1, team2])
-
-            j += 1
-
+            # Tente encontrar o elemento da liga esportiva na tabela de aposta
+            league_element = div.find_element(
+                By.XPATH,
+                ".//span[contains(@class, 'text-muted') and contains(@class, 'text-wrap') and contains(@class, 'text-left')]/a",
+            )
+            sport_league = (
+                league_element.text.strip()
+            )  # Atualiza a variável se encontrada
         except NoSuchElementException:
-            break
+            pass  # Mantém o valor padrão de sport_league se o elemento não for encontrado
 
-    bet_details = []
-    for j in range(1, 3):
-        for k in range(2, 4):
-            bet_info = {"moneyline": "", "spread": "", "over/under": ""}
+        try:
+            # Tente encontrar o elemento da data na tabela de aposta
+            date_element = div.find_element(
+                By.XPATH,
+                ".//span[contains(@class, 'badge-light') and contains(@class, 'text-wrap') and contains(@class, 'text-left')]",
+            )
+            date = date_element.text.strip()
+            event_date_utc = convert_to_utc(date)  # Atualiza a variável se encontrada
+        except NoSuchElementException:
+            pass
 
-            for l in range(2, 5):
-                try:
-                    bet_xpath = f".//div[div[{j}]]/div/table/tbody/tr[{k}]/td[{l}]/table/tbody/tr/td/span"
-                    bet_element = row.find_element(By.XPATH, bet_xpath)
-                    bet_text = bet_element.text.strip()
+        team_elements = div.find_elements(
+            By.XPATH,
+            ".//td[not(@width)]//a[contains(@href, 'betting-trends')]/span[contains(@class, 'text-muted')]",
+        )
+        teams = [
+            team_element.text.strip()
+            for team_element in team_elements
+            if team_element.text.strip()
+        ]
 
-                    if l == 2:
-                        bet_info["moneyline"] = bet_text
-                    elif l == 3:
-                        bet_info["spread"] = bet_text
-                    elif l == 4:
-                        bet_info["over/under"] = bet_text
+        # Encontra todos os tds dentro do tr que contém os valores de aposta
+        # Localizar o tr que contém as informações de aposta
+        bet_trs = div.find_elements(
+            By.XPATH, ".//table/tbody/tr[position()=2 or position()=3]"
+        )
 
-                except NoSuchElementException:
-                    continue
+        bet_details = []
+        for bet_tr in bet_trs:
+            bet_tds = bet_tr.find_elements(By.XPATH, "./td[@width='54']")
 
-            bet_details.append(bet_info)
+            if len(bet_tds) == 3:
+                bet_info = {
+                    "moneyline": bet_tds[0].text.strip(),
+                    "spread": bet_tds[1].text.strip(),
+                    "total": bet_tds[2].text.strip(),
+                }
+                bet_details.append(bet_info)
+            else:
+                print(
+                    f"Unexpected number of betting info found: {len(bet_tds)} in bet_tr"
+                )
 
-    structured_bets = create_betting_structure(
-        bet_details, sport_league, event_date_utc, teams[0], teams[1]
-    )
-    items.extend(structured_bets)
+        # Verifique se temos dois conjuntos de detalhes de aposta para os dois times
+        if len(bet_details) == 2:
+            structured_bets = create_betting_structure(
+                bet_details, sport_league, event_date_utc, teams[0], teams[1]
+            )
+
+            items.append(structured_bets)
+        else:
+            print(f"Unexpected number of bet details found: {len(bet_details)} in div")
 
 driver.quit()
 
 json_output = json.dumps(items, indent=2)
-print(json_output)
+# print(json_output)
 
 with open("output.json", "w") as file:
     file.write(json_output)
