@@ -50,28 +50,22 @@ def convert_to_utc(date_str):
 
 
 def parse_price_and_spread(bet_value):
-    # Verifica se o valor é "N/A" ou vazio
+    # Parses the price and spread from a string
     if bet_value in ["N/A", ""]:
         return "N/A", "N/A"
 
-    # Separa os componentes do valor da aposta
-    if 'O ' in bet_value or 'U ' in bet_value:
-        # Para over/under, separa o valor do spread do preço
-        spread, price = bet_value.replace('O ', '').replace('U ', '').split('\n')
+    if "O " in bet_value or "U " in bet_value:
+        spread, price = bet_value.replace("O ", "").replace("U ", "").split("\n")
     else:
-        # Para moneyline e spread, o spread e o preço já estão separados
-        parts = bet_value.split('\n')
-        spread = parts[0]  # O spread é o primeiro elemento
-        price = parts[1] if len(parts) > 1 else spread  # O preço é o segundo elemento ou o mesmo que o spread para moneyline
+        parts = bet_value.split("\n")
+        spread = parts[0]
+        price = parts[1] if len(parts) > 1 else spread
 
-    # Remove parênteses do preço, se houver
     price = price.strip("()")
 
-    # Converte o spread para um número, se possível
     try:
-        spread = float(spread.replace('½', '.5'))  # Converte frações para decimal
+        spread = float(spread.replace("½", ".5"))
     except ValueError:
-        # Se o spread não for um número, define como "N/A"
         spread = "N/A"
 
     return price, spread
