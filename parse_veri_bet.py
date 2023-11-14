@@ -224,7 +224,7 @@ for row in tqdm(
 driver.quit()
 
 json_output = json.dumps(items, indent=2)
-# print(json_output)
+print(json_output)
 
 with open("output.json", "w") as file:
     file.write(json_output)

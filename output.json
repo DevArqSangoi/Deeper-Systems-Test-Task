@@ -9848,7 +9848,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "moneyline",
-      "price": "-172",
+      "price": "-171",
       "side": "Pittsburgh Penguins",
       "team": "Pittsburgh Penguins",
       "spread": "0"
@@ -9861,7 +9861,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "moneyline",
-      "price": "+154",
+      "price": "+152",
       "side": "Columbus Blue Jackets",
       "team": "Columbus Blue Jackets",
       "spread": "0"
@@ -9874,7 +9874,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "spread",
-      "price": "+149",
+      "price": "+150",
       "side": "Pittsburgh Penguins",
       "team": "Pittsburgh Penguins",
       "spread": -1.5
@@ -9887,7 +9887,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "spread",
-      "price": "-167",
+      "price": "-168",
       "side": "Columbus Blue Jackets",
       "team": "Columbus Blue Jackets",
       "spread": 1.5
@@ -9900,7 +9900,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "over/under",
-      "price": "-119",
+      "price": "-120",
       "side": "over",
       "team": "total",
       "spread": 6.5
@@ -9913,7 +9913,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "over/under",
-      "price": "+104",
+      "price": "+106",
       "side": "under",
       "team": "total",
       "spread": 6.5
@@ -9928,7 +9928,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "moneyline",
-      "price": "-145",
+      "price": "-142",
       "side": "Calgary Flames",
       "team": "Calgary Flames",
       "spread": "0"
@@ -9941,7 +9941,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "moneyline",
-      "price": "+129",
+      "price": "+127",
       "side": "Montreal Canadiens",
       "team": "Montreal Canadiens",
       "spread": "0"
@@ -9954,7 +9954,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "spread",
-      "price": "+171",
+      "price": "+174",
       "side": "Calgary Flames",
       "team": "Calgary Flames",
       "spread": -1.5
@@ -9967,7 +9967,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "spread",
-      "price": "-193",
+      "price": "-197",
       "side": "Montreal Canadiens",
       "team": "Montreal Canadiens",
       "spread": 1.5
@@ -9993,7 +9993,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "over/under",
-      "price": "-115",
+      "price": "-113",
       "side": "under",
       "team": "total",
       "spread": 6.5
@@ -10261,7 +10261,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "moneyline",
-      "price": "-123",
+      "price": "-124",
       "side": "Winnipeg Jets",
       "team": "Winnipeg Jets",
       "spread": "0"
@@ -10274,7 +10274,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "spread",
-      "price": "-227",
+      "price": "-225",
       "side": "New Jersey Devils",
       "team": "New Jersey Devils",
       "spread": 1.5
@@ -10287,7 +10287,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "spread",
-      "price": "+200",
+      "price": "+198",
       "side": "Winnipeg Jets",
       "team": "Winnipeg Jets",
       "spread": -1.5
@@ -10328,7 +10328,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "moneyline",
-      "price": "-283",
+      "price": "-285",
       "side": "Florida Panthers",
       "team": "Florida Panthers",
       "spread": "0"
@@ -10341,7 +10341,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "moneyline",
-      "price": "+239",
+      "price": "+241",
       "side": "San Jose Sharks",
       "team": "San Jose Sharks",
       "spread": "0"
@@ -10354,7 +10354,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "spread",
-      "price": "-108",
+      "price": "-111",
       "side": "Florida Panthers",
       "team": "Florida Panthers",
       "spread": -1.5
@@ -10367,7 +10367,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "spread",
-      "price": "-106",
+      "price": "-104",
       "side": "San Jose Sharks",
       "team": "San Jose Sharks",
       "spread": 1.5
@@ -10380,7 +10380,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "over/under",
-      "price": "-106",
+      "price": "-108",
       "side": "over",
       "team": "total",
       "spread": 6.5
@@ -10393,7 +10393,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "over/under",
-      "price": "-110",
+      "price": "-108",
       "side": "under",
       "team": "total",
       "spread": 6.5
@@ -10488,7 +10488,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "moneyline",
-      "price": "+262",
+      "price": "+267",
       "side": "Harrogate Town",
       "team": "Harrogate Town",
       "spread": "0"
@@ -10501,7 +10501,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "moneyline",
-      "price": "-106",
+      "price": "-109",
       "side": "Carlisle",
       "team": "Carlisle",
       "spread": "0"
@@ -10514,7 +10514,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "spread",
-      "price": "-114",
+      "price": "-111",
       "side": "Harrogate Town",
       "team": "Harrogate Town",
       "spread": 0.5
@@ -10527,7 +10527,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "spread",
-      "price": "-106",
+      "price": "-109",
       "side": "Carlisle",
       "team": "Carlisle",
       "spread": -0.5
@@ -10648,7 +10648,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "moneyline",
-      "price": "+204",
+      "price": "+208",
       "side": "Walsall",
       "team": "Walsall",
       "spread": "0"
@@ -10661,7 +10661,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "moneyline",
-      "price": "+120",
+      "price": "+117",
       "side": "Shrewsbury",
       "team": "Shrewsbury",
       "spread": "0"
@@ -10674,7 +10674,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "spread",
-      "price": "-146",
+      "price": "-143",
       "side": "Walsall",
       "team": "Walsall",
       "spread": 0.5
@@ -10687,7 +10687,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "spread",
-      "price": "+117",
+      "price": "+114",
       "side": "Shrewsbury",
       "team": "Shrewsbury",
       "spread": -0.5
@@ -10700,7 +10700,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "over/under",
-      "price": "-145",
+      "price": "-146",
       "side": "over",
       "team": "total",
       "spread": 2.5
@@ -11048,7 +11048,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "moneyline",
-      "price": "+161",
+      "price": "+165",
       "side": "Bolton Wanderers",
       "team": "Bolton Wanderers",
       "spread": "0"
@@ -11061,7 +11061,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "moneyline",
-      "price": "+147",
+      "price": "+144",
       "side": "Stockport",
       "team": "Stockport",
       "spread": "0"
@@ -11100,7 +11100,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "over/under",
-      "price": "-147",
+      "price": "-148",
       "side": "over",
       "team": "total",
       "spread": 2.5
@@ -11461,7 +11461,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "moneyline",
-      "price": "+125",
+      "price": "+124",
       "side": "York City",
       "team": "York City",
       "spread": "0"
@@ -11487,7 +11487,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "spread",
-      "price": "+124",
+      "price": "+123",
       "side": "York City",
       "team": "York City",
       "spread": -0.5
@@ -11608,7 +11608,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "moneyline",
-      "price": "-119",
+      "price": "-121",
       "side": "Peterborough United",
       "team": "Peterborough United",
       "spread": "0"
@@ -11621,7 +11621,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "moneyline",
-      "price": "+297",
+      "price": "+304",
       "side": "Salford City",
       "team": "Salford City",
       "spread": "0"
@@ -11634,7 +11634,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "spread",
-      "price": "-119",
+      "price": "-121",
       "side": "Peterborough United",
       "team": "Peterborough United",
       "spread": -0.5
@@ -11647,7 +11647,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "spread",
-      "price": "+100",
+      "price": "+102",
       "side": "Salford City",
       "team": "Salford City",
       "spread": 0.5
@@ -11660,7 +11660,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "over/under",
-      "price": "+100",
+      "price": "-102",
       "side": "over",
       "team": "total",
       "spread": 3.0
@@ -11673,7 +11673,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "over/under",
-      "price": "-120",
+      "price": "-119",
       "side": "under",
       "team": "total",
       "spread": 3.0
@@ -17608,7 +17608,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "moneyline",
-      "price": "-132",
+      "price": "-133",
       "side": "Gremio Novorizontino SP",
       "team": "Gremio Novorizontino SP",
       "spread": "0"
@@ -17621,7 +17621,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "moneyline",
-      "price": "+354",
+      "price": "+345",
       "side": "Londrina EC PR",
       "team": "Londrina EC PR",
       "spread": "0"
@@ -17634,7 +17634,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "spread",
-      "price": "-131",
+      "price": "-133",
       "side": "Gremio Novorizontino SP",
       "team": "Gremio Novorizontino SP",
       "spread": -0.5
@@ -17647,7 +17647,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "spread",
-      "price": "-107",
+      "price": "-105",
       "side": "Londrina EC PR",
       "team": "Londrina EC PR",
       "spread": 0.5
@@ -17660,10 +17660,10 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "over/under",
-      "price": "-121",
+      "price": "+125",
       "side": "over",
       "team": "total",
-      "spread": 2.0
+      "spread": 2.5
     },
     {
       "sport_league": "Brazil - Serie B",
@@ -17673,10 +17673,10 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "over/under",
-      "price": "-117",
+      "price": "-181",
       "side": "under",
       "team": "total",
-      "spread": 2.0
+      "spread": 2.5
     }
   ],
   [
@@ -20088,7 +20088,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "moneyline",
-      "price": "+830",
+      "price": "+838",
       "side": "Kosovo",
       "team": "Kosovo",
       "spread": "0"
@@ -20101,7 +20101,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "moneyline",
-      "price": "-294",
+      "price": "-297",
       "side": "Switzerland",
       "team": "Switzerland",
       "spread": "0"
@@ -20114,7 +20114,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "spread",
-      "price": "-112",
+      "price": "-111",
       "side": "Kosovo",
       "team": "Kosovo",
       "spread": 1.5
@@ -20127,7 +20127,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "spread",
-      "price": "-104",
+      "price": "-105",
       "side": "Switzerland",
       "team": "Switzerland",
       "spread": -1.5
@@ -20248,7 +20248,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "moneyline",
-      "price": "+288",
+      "price": "+287",
       "side": "Atletico Goianiense",
       "team": "Atletico Goianiense",
       "spread": "0"
@@ -20261,7 +20261,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "moneyline",
-      "price": "+118",
+      "price": "+117",
       "side": "Mirassol",
       "team": "Mirassol",
       "spread": "0"
@@ -20274,7 +20274,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "spread",
-      "price": "-141",
+      "price": "-140",
       "side": "Atletico Goianiense",
       "team": "Atletico Goianiense",
       "spread": 0.5
@@ -20287,7 +20287,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "spread",
-      "price": "+117",
+      "price": "+116",
       "side": "Mirassol",
       "team": "Mirassol",
       "spread": -0.5
@@ -20300,7 +20300,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "over/under",
-      "price": "-109",
+      "price": "-113",
       "side": "over",
       "team": "total",
       "spread": 2.0
@@ -20313,7 +20313,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "over/under",
-      "price": "-111",
+      "price": "-107",
       "side": "under",
       "team": "total",
       "spread": 2.0
@@ -20328,7 +20328,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "moneyline",
-      "price": "+229",
+      "price": "+227",
       "side": "Sport Recife",
       "team": "Sport Recife",
       "spread": "0"
@@ -20341,7 +20341,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "moneyline",
-      "price": "+135",
+      "price": "+134",
       "side": "Vitoria BA",
       "team": "Vitoria BA",
       "spread": "0"
@@ -20367,7 +20367,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "spread",
-      "price": "+134",
+      "price": "+133",
       "side": "Vitoria BA",
       "team": "Vitoria BA",
       "spread": -0.5
@@ -20380,7 +20380,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "over/under",
-      "price": "+137",
+      "price": "+133",
       "side": "over",
       "team": "total",
       "spread": 2.5
@@ -20393,7 +20393,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "over/under",
-      "price": "-168",
+      "price": "-163",
       "side": "under",
       "team": "total",
       "spread": 2.5
@@ -21381,7 +21381,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "moneyline",
-      "price": "+114",
+      "price": "+112",
       "side": "CRB",
       "team": "CRB",
       "spread": "0"
@@ -21394,7 +21394,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "spread",
-      "price": "-136",
+      "price": "-135",
       "side": "Tombense",
       "team": "Tombense",
       "spread": 0.5
@@ -21420,7 +21420,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "over/under",
-      "price": "+131",
+      "price": "+127",
       "side": "over",
       "team": "total",
       "spread": 2.5
@@ -21433,7 +21433,7 @@
       "pitcher": "",
       "period": "FULL GAME",
       "line_type": "over/under",
-      "price": "-160",
+      "price": "-156",
       "side": "under",
       "team": "total",
       "spread": 2.5
